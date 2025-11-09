@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kamil Salameh | Photographer from Beirut, Lebanon</title>
-    <meta name="description" content="Official portfolio of Kamil Salameh, a visual artist and photographer specializing in documentary, urban, and fine-art photography based in Beirut, Lebanon.">
+    <title>Kamil Salameh | Visual Artist & Photographer - Beirut, Lebanon</title>
+    <meta name="description" content="Official portfolio of Kamil Salameh, a visual artist and photographer specializing in documentary, fine-art, and urban landscape photography based in Beirut, Lebanon.">
+    
     <style>
-        /* General Setup and Fonts */
+        /* BASE STYLES: Minimalist, Dark Theme (Matching Pixieset Aesthetic) */
         :root {
-            --primary-color: #0d0d0d;
-            --secondary-color: #f0f0f0;
-            --accent-color: #aaaaaa;
-            --font-family-header: 'Arial', sans-serif;
-            --font-family-body: 'Helvetica Neue', sans-serif;
+            --color-bg: #000000;
+            --color-text: #f0f0f0;
+            --color-accent: #888888;
+            --font-primary: 'Helvetica Neue', Arial, sans-serif;
+            --font-secondary: 'Georgia', serif;
         }
 
         * {
@@ -22,35 +23,42 @@
         }
 
         body {
-            font-family: var(--font-family-body);
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
+            font-family: var(--font-primary);
+            background-color: var(--color-bg);
+            color: var(--color-text);
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
-        /* Header and Navigation */
+        /* HEADER: Clean, Fixed Top Bar */
         header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
             padding: 20px 5%;
-            border-bottom: 1px solid var(--accent-color);
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.9); /* Opaque background for contrast */
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid #1a1a1a;
         }
 
-        header h1 a {
-            font-family: var(--font-family-header);
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--secondary-color);
+        header .logo a {
+            font-family: var(--font-primary);
+            font-size: 1.2rem;
+            font-weight: 300; 
+            letter-spacing: 3px;
+            color: var(--color-text);
             text-decoration: none;
-            /* SEO Optimization: The most important H1 tag */
+            text-transform: uppercase;
         }
 
         nav a {
-            color: var(--secondary-color);
+            color: var(--color-text);
             text-decoration: none;
-            margin-left: 20px;
+            margin-left: 30px;
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -58,136 +66,123 @@
         }
 
         nav a:hover {
-            color: var(--accent-color);
+            color: var(--color-accent);
         }
 
-        /* Hero Section */
-        #hero {
-            text-align: center;
-            padding: 100px 5%; 
-            background-image: url('hero-image.jpg'); /* REPLACE with your actual high-impact image */
-            background-size: cover;
-            background-position: center;
-            min-height: 60vh;
+        /* PORTFOLIO: Full-Width Image Grid (Mimics Pixieset Galleries) */
+        #portfolio {
+            padding: 0;
+            padding-top: 60px; /* Space for the fixed header */
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            position: relative;
         }
         
-        #hero::before { /* Semi-transparent overlay for better text readability */
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
+        .gallery-item {
+            width: 100%;
+            max-width: 1800px;
+            margin-bottom: 5px; 
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        #hero h2 {
-            font-family: var(--font-family-header);
-            font-size: 3rem;
-            margin-bottom: 10px;
-            color: white;
-            z-index: 1; /* Bring text above the overlay */
-        }
-
-        #hero p {
-            font-size: 1.2rem;
-            color: var(--secondary-color);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            z-index: 1;
-        }
-
-        /* Gallery Section */
-        #portfolio {
-            padding: 50px 5%;
-        }
-
-        #portfolio h2 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            color: var(--accent-color);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
+        .gallery-item a {
+            text-decoration: none; /* Ensure link doesn't look weird */
+            display: block;
+            width: 100%;
         }
 
         .gallery-item img {
             width: 100%;
             height: auto;
             display: block;
-            object-fit: cover;
-            transition: opacity 0.3s;
+            opacity: 1;
+            transition: opacity 0.4s ease-in-out;
+        }
+        
+        .gallery-item:hover img {
+            opacity: 0.8; /* Subtle hover effect */
+        }
+        
+        /* Collection Title Overlay (Mimics Pixieset Gallery Block) */
+        .collection-title {
+            position: absolute;
+            bottom: 30px; 
+            left: 5%;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: white;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.4);
+            font-weight: 300;
+            pointer-events: none; /* Title does not interfere with the link */
         }
 
-        .gallery-item img:hover {
-            opacity: 0.8;
-        }
-
-        /* About Section */
+        /* ABOUT SECTION: Center Aligned Text */
         #about {
-            padding: 50px 5%;
-            background-color: #1a1a1a;
-            color: var(--secondary-color);
+            text-align: center;
+            padding: 100px 10%;
+            background-color: #111;
+            min-height: auto;
         }
 
         #about h2 {
-            font-size: 2rem;
+            font-family: var(--font-secondary);
+            font-size: 2.5rem;
             margin-bottom: 20px;
             color: white;
         }
 
         #about p {
             max-width: 800px;
-            margin-bottom: 15px;
+            margin: 0 auto 20px auto;
+            font-size: 1.1rem;
+            color: var(--color-text);
         }
 
-        /* Contact Section and Footer */
-        #contact {
+        /* CONTACT / FOOTER: Minimalist and Unified */
+        footer {
             padding: 50px 5%;
             text-align: center;
+            background-color: var(--color-bg);
         }
 
-        #contact h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: white;
+        footer h2 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        #contact a {
-            color: var(--secondary-color);
+        footer .social-links a {
+            color: var(--color-text);
             text-decoration: none;
-            margin: 0 10px;
-            font-size: 1.1rem;
+            margin: 0 15px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: color 0.3s;
         }
 
-        #contact a:hover {
-            color: var(--accent-color);
+        footer .social-links a:hover {
+            color: var(--color-accent);
         }
 
-        footer {
-            padding: 20px 5%;
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--accent-color);
-            border-top: 1px solid #222;
+        footer p {
+            margin-top: 35px;
+            font-size: 0.75rem;
+            color: var(--color-accent);
         }
 
-        /* Media Queries for Mobile Responsiveness */
-        @media (max-width: 600px) {
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
             header {
+                padding: 15px 5%;
                 flex-direction: column;
-                padding-bottom: 10px;
             }
 
             nav {
@@ -197,18 +192,19 @@
             nav a {
                 margin: 0 8px;
             }
-            
-            #hero h2 {
-                font-size: 2rem;
+
+            .collection-title {
+                font-size: 1.2rem;
             }
         }
-
     </style>
 </head>
 <body>
 
     <header>
-        <h1><a href="#hero">KAMIL SALAMEH</a></h1> 
+        <div class="logo">
+            <h1><a href="#portfolio">Kamil Salameh</a></h1> 
+        </div>
         <nav>
             <a href="#portfolio">Portfolio</a>
             <a href="#about">About</a>
@@ -216,53 +212,68 @@
         </nav>
     </header>
 
-    <section id="hero">
-        <h2>Visual Artist & Photographer</h2>
-        <p>BEIRUT, LEBANON</p>
-    </section>
-
     <section id="portfolio">
-        <h2>Selected Works</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="image-1.jpg" alt="Kamil Salameh Documentary Photography of Urban Beirut" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="image-2.jpg" alt="Fine-Art Architectural Photography in Lebanon by Kamil Salameh" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="image-3.jpg" alt="Street Photography in Beirut Lebanon by Kamil Salameh" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="image-4.jpg" alt="Photo series on social issues in Lebanon" loading="lazy">
-            </div>
-            </div>
+        
+        <div class="gallery-item">
+            <a href="#about" title="View Architecture Collection">
+                <img src="architecture.jpg" alt="Kamil Salameh Architecture Photography in Beirut Lebanon" loading="lazy">
+                <div class="collection-title">Architecture</div>
+            </a>
+        </div>
+        
+        <div class="gallery-item">
+            <a href="#about" title="View Documentary Collection">
+                <img src="documentary.jpg" alt="Kamil Salameh Documentary Photography Social Series Beirut" loading="lazy">
+                <div class="collection-title">Documentary</div>
+            </a>
+        </div>
+        
+        <div class="gallery-item">
+            <a href="#about" title="View Fine Art Collection">
+                <img src="fine-art.jpg" alt="Kamil Salameh Fine Art Visual Artist Photography Lebanon" loading="lazy">
+                <div class="collection-title">Fine Art</div>
+            </a>
+        </div>
+        
+        <div class="gallery-item">
+            <a href="#about" title="View Street Photography Collection">
+                <img src="street.jpg" alt="Kamil Salameh Street Photography Urban Life Middle East" loading="lazy">
+                <div class="collection-title">Street</div>
+            </a>
+        </div>
+        
+        <div class="gallery-item">
+            <a href="#about" title="View Urban Landscapes Collection">
+                <img src="urban-landscapes.jpg" alt="Kamil Salameh Urban Landscape Photography Beirut Architecture" loading="lazy">
+                <div class="collection-title">Urban Landscapes</div>
+            </a>
+        </div>
+
     </section>
 
     <section id="about">
-        <h2>About Kamil Salameh</h2>
+        <h2>Visual Artist & Photographer</h2>
         <p>
-            Kamil Salameh is a distinguished visual artist and photographer based in **Beirut, Lebanon**. His practice centers on long-form **documentary photography** and **fine-art urban studies**, capturing the socio-political landscapes and architectural transformations of the Middle East. With a focus on the human condition and the enduring spirit of Beirut, his work is featured in numerous regional exhibitions and private collections.
+            Kamil Salameh is a distinguished visual artist and photographer based in **Beirut, Lebanon**. His practice centers on long-form **documentary photography** and **fine-art urban studies**, capturing the socio-political landscapes and architectural transformations of the Middle East. With a focused eye on light, shadow, and texture, his work aims to document the enduring human condition and the spirit of a changing urban environment.
         </p>
         <p>
-            Trained in (Your specific training/style here, e.g., black-and-white analog photography), Kamil leverages his unique perspective to create impactful narratives. (You can add another paragraph detailing awards, specific projects, or philosophy here).
+            His images have been featured in major regional galleries and are recognized for their unique perspective on modern Lebanese history and identity.
         </p>
     </section>
 
-    <section id="contact">
-        <h2>Get in Touch</h2>
-        <p>For commissions, print sales, or collaborations.</p>
-        <a href="mailto:your.email@example.com">Email Me</a>
-        <a href="https://instagram.com/yourhandle" target="_blank">Instagram</a>
-        <a href="tel:+961xxxxxxxx">Call/WhatsApp</a>
-    </section>
-
-    <footer>
-        &copy; <span id="year">2025</span> Kamil Salameh Photography. All rights reserved.
+    <footer id="contact">
+        <h2>Contact</h2>
+        <div class="social-links">
+            <a href="mailto:salamehkamil@gmail.com">Email: salamehkamil@gmail.com</a>
+            <a href="https://instagram.com/kamilsalameh" target="_blank">Instagram: @kamilsalameh</a>
+            <a href="https://www.linkedin.com/company/kamilsalamehphotography" target="_blank">LinkedIn</a>
+        </div>
+        <p>
+            &copy; <span id="year">2025</span> Kamil Salameh Photography. Beirut, Lebanon. All Rights Reserved.
+        </p>
     </footer>
 
     <script>
-        // Simple script to update the copyright year automatically
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 
