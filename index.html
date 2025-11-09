@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamil Salameh | Photographer from Beirut, Lebanon</title>
+    <meta name="description" content="Official portfolio of Kamil Salameh, a visual artist and photographer specializing in documentary, urban, and fine-art photography based in Beirut, Lebanon.">
+    <style>
+        /* General Setup and Fonts */
+        :root {
+            --primary-color: #0d0d0d;
+            --secondary-color: #f0f0f0;
+            --accent-color: #aaaaaa;
+            --font-family-header: 'Arial', sans-serif;
+            --font-family-body: 'Helvetica Neue', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family-body);
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            line-height: 1.6;
+        }
+
+        /* Header and Navigation */
+        header {
+            padding: 20px 5%;
+            border-bottom: 1px solid var(--accent-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 a {
+            font-family: var(--font-family-header);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            /* SEO Optimization: The most important H1 tag */
+        }
+
+        nav a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        #hero {
+            text-align: center;
+            padding: 100px 5%; 
+            background-image: url('hero-image.jpg'); /* REPLACE with your actual high-impact image */
+            background-size: cover;
+            background-position: center;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        #hero::before { /* Semi-transparent overlay for better text readability */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        #hero h2 {
+            font-family: var(--font-family-header);
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: white;
+            z-index: 1; /* Bring text above the overlay */
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            z-index: 1;
+        }
+
+        /* Gallery Section */
+        #portfolio {
+            padding: 50px 5%;
+        }
+
+        #portfolio h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item img:hover {
+            opacity: 0.8;
+        }
+
+        /* About Section */
+        #about {
+            padding: 50px 5%;
+            background-color: #1a1a1a;
+            color: var(--secondary-color);
+        }
+
+        #about h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        #about p {
+            max-width: 800px;
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section and Footer */
+        #contact {
+            padding: 50px 5%;
+            text-align: center;
+        }
+
+        #contact h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        #contact a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        #contact a:hover {
+            color: var(--accent-color);
+        }
+
+        footer {
+            padding: 20px 5%;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid #222;
+        }
+
+        /* Media Queries for Mobile Responsiveness */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                padding-bottom: 10px;
+            }
+
+            nav {
+                margin-top: 10px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+            
+            #hero h2 {
+                font-size: 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><a href="#hero">KAMIL SALAMEH</a></h1> 
+        <nav>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <h2>Visual Artist & Photographer</h2>
+        <p>BEIRUT, LEBANON</p>
+    </section>
+
+    <section id="portfolio">
+        <h2>Selected Works</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="image-1.jpg" alt="Kamil Salameh Documentary Photography of Urban Beirut" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="image-2.jpg" alt="Fine-Art Architectural Photography in Lebanon by Kamil Salameh" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="image-3.jpg" alt="Street Photography in Beirut Lebanon by Kamil Salameh" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="image-4.jpg" alt="Photo series on social issues in Lebanon" loading="lazy">
+            </div>
+            </div>
+    </section>
+
+    <section id="about">
+        <h2>About Kamil Salameh</h2>
+        <p>
+            Kamil Salameh is a distinguished visual artist and photographer based in **Beirut, Lebanon**. His practice centers on long-form **documentary photography** and **fine-art urban studies**, capturing the socio-political landscapes and architectural transformations of the Middle East. With a focus on the human condition and the enduring spirit of Beirut, his work is featured in numerous regional exhibitions and private collections.
+        </p>
+        <p>
+            Trained in (Your specific training/style here, e.g., black-and-white analog photography), Kamil leverages his unique perspective to create impactful narratives. (You can add another paragraph detailing awards, specific projects, or philosophy here).
+        </p>
+    </section>
+
+    <section id="contact">
+        <h2>Get in Touch</h2>
+        <p>For commissions, print sales, or collaborations.</p>
+        <a href="mailto:your.email@example.com">Email Me</a>
+        <a href="https://instagram.com/yourhandle" target="_blank">Instagram</a>
+        <a href="tel:+961xxxxxxxx">Call/WhatsApp</a>
+    </section>
+
+    <footer>
+        &copy; <span id="year">2025</span> Kamil Salameh Photography. All rights reserved.
+    </footer>
+
+    <script>
+        // Simple script to update the copyright year automatically
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
